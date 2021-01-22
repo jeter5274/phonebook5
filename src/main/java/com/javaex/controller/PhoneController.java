@@ -85,8 +85,7 @@ public class PhoneController {
 		
 		return "updateForm";
 	}
-	/*
-
+	
 	// 수정 -> modify : @ModelAttribute 활용
 	@RequestMapping(value="/modify", method = {RequestMethod.GET, RequestMethod.POST})
 	public String modify(@ModelAttribute PersonVo personVo) {
@@ -96,6 +95,7 @@ public class PhoneController {
 			
 		return "redirect:/phone/list";
 	}
+	/*
 	
 	//수정 -> modify : @RequestParam 사용 (비교용 원본)
 	@RequestMapping(value="/modify2", method = {RequestMethod.GET, RequestMethod.POST})

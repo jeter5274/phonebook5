@@ -67,5 +67,16 @@
 			where person_id = #{personId}
 		]]>
 	</select>
+	
+	<!-- 전화번호 수정 -->
+	<update id="update" parameterType="com.javaex.vo.PersonVo">
+		<![CDATA[
+			update person 
+			set name = #{name},
+				hp = #{hp},
+    			company = #{company}
+			where person_id = #{personId}
+		]]>
+	</update>
 </mapper>
 

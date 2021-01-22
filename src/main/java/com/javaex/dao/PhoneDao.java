@@ -44,4 +44,13 @@ public class PhoneDao {
 		System.out.println(personVo.toString());
 		return personVo;
 	}
+	
+	//전화번호 수정
+	public void personUpdate(PersonVo personVo) {
+		System.out.println("dao : personUpdate(" +personVo+ ")");
+		
+		int count = sqlSession.update("phonebook.update", personVo);
+		System.out.println(count);
+		
+	}
 }
