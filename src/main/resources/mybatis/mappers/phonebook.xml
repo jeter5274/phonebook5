@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="phonebook">
+
+	<!-- 전체리스트 가져오기 -->
+	<!-- resultType이 제대로 작성되었으면 ctrl을 눌렀을 때 링크가 생김 -->
+	<!-- CDATA 영역안은 태그인식 안하고 쿼리문으로 인식 -->
+	<select id="selectlist" resultType="com.javaex.vo.PersonVo">		
+		<![CDATA[
+			select  person_id personId,
+			      	name,
+			  		hp,
+			   		company
+			from person
+			order by person_id
+		]]>
+	</select>
+
+	<resultMap id="resultMapPersonVo"
+		type="com.javaex.vo.PersonVo">
+		<result column="person_id" property="personId" />
+		<result column="name" property="name" />
+		<result column="hp" property="hp" />
+		<result column="company" property="company" />
+	</resultMap>
+
+	<select id="selectlist2" resultMap="resultMapPersonVo">		
+		<![CDATA[
+			select  person_id,
+			      	name,
+			  		hp,
+			   		company
+			from person
+			order by person_id
+		]]>
+	</select>
+
+	<!-- 전화번호 저장 -->
+	<insert id="insert" parameterType="com.javaex.vo.PersonVo">
+		<![CDATA[
+			insert into person
+			values (seq_person_id.nextval,
+			        #{name},
+			        #{hp},
+			        #{company}
+			)
+		]]>
+	</insert>
+
+	<!-- 전화번호 삭제 -->
+	<delete id="delete" parameterType="int">
+		<![CDATA[
+			delete from person
+			where person_id = #{personId}
+		]]>
+	</delete>
+	
+	<!--전화번호 한개 가져오기 -->
+	<select id="selectOne" parameterType="int" resultType="com.javaex.vo.PersonVo">
+		<![CDATA[
+			select  person_id personId,
+			      	name,
+			  		hp,
+			   		company
+			from person
+			where person_id = #{personId}
+		]]>
+	</select>
+</mapper>
+
