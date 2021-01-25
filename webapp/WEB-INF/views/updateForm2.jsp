@@ -16,11 +16,11 @@
 	</p>
 	
 	<form action="${pageContext.request.contextPath}/phone/modify2" method="get">
-		이름(name): <input type="text" name="name" value="${pVo.name}"><br> <%-- ${pVo.name} -> ${requestScope.pVo.name} --%>
-		핸드폰(hp): <input type="text" name="hp" value="${pVo.hp}"><br>
-		회사(company): <input type="text" name="company" value="${pVo.company}"><br>
+		이름(name): <input type="text" name="name" value="${pMap.NAME}"><br>
+		핸드폰(hp): <input type="text" name="hp" value="${pMap.HP}"><br>
+		회사(company): <input type="text" name="company" value="${pMap.COMPANY}"><br>
 		
-		코드(id): <input type="text" name="personId" value="${pVo.personId}" readonly><br>
+		코드(id): <input type="text" name="personId" value="${pMap.PERSONID}" readonly><br>
 		<button type="submit">수정</button>
 		
 	</form>
